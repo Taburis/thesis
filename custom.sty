@@ -1,0 +1,265 @@
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{amssymb}
+\usepackage{amsmath,latexsym,bm}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+% \usepackage[margin=1.0in]{geometry}
+% \usepackage[mathscr]{euscript}
+\usepackage{bbold,yfonts}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{extarrows}
+\usepackage{tabularx}
+\usepackage{slashed}
+\usepackage{appendix}
+\usepackage{tocloft}
+\usepackage{siunitx}
+\usepackage[backend=bibtex,sorting=none]{biblatex}
+\usepackage{lipsum}
+\addtolength{\skip\footins}{2pc}
+
+
+\AtBeginEnvironment{subappendices}{%
+\addtocontents{toc}{\cftpagenumbersoff{chapter}}
+\chapter*{Appendix}
+\addcontentsline{toc}{chapter}{Appendices}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+}
+
+\AtEndEnvironment{subappendices}{%
+\addtocontents{toc}{\cftpagenumberson{chapter}}
+\counterwithout{figure}{section}
+\counterwithout{table}{section}
+}
+
+
+\usepackage[colorlinks=true,backref=false, linktocpage=true,
+citecolor=blue,urlcolor=blue,linkcolor=blue,pdfpagemode=UseOutlines,pdfstartview=FitH,bookmarksopen]{hyperref}
+ 
+\hypersetup{%
+  bookmarksnumbered=true,
+  pdftitle = {},
+  pdfsubject = {},
+  pdfauthor = {},
+  pdfkeywords = {}
+}
+
+\graphicspath{{fig/}}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\ea}{\end{eqnarray}}
+\newcommand{\nn}{\nonumber\\} 
+
+\newcommand{\lae}{\begin{array}{c}\,\sim\vspace{-21pt}\\<
+\end{array}}
+\newcommand{\gae}{\begin{array}{c}\,\sim\vspace{-21pt}\\>
+\end{array}}
+
+\newcommand{\mc}{\mathcal}
+
+
+
+%math
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\sym}{sym}
+
+
+%scales
+\newcommand\lmic{\ell_{\rm mic}}
+\newcommand\tev{\tau_{\rm ev}}
+\newcommand\leqb{\ell_{\rm eq}}
+
+%hydro notations
+\newcommand{\h}{\theta}
+\newcommand{\divu}{\h}
+\newcommand{\bdivu}{\divu}
+\newcommand{\eps}{\epsilon} 
+\newcommand{\geta}{\gamma_\eta}
+\newcommand{\gz}{\gamma_\zeta}
+\newcommand{\gL}{\gamma_L}
+\newcommand{\gl}{\gamma_\lambda}
+\newcommand{\gp}{\gamma_p}
+
+
+%fluctuating variables 
+\newcommand{\de}{\delta\epsilon} 
+\newcommand{\du}{\delta u} 
+\newcommand{\dg}{\delta g} 
+\newcommand{\dph}{\phi}
+\newcommand{\dm}{\delta m} 
+\newcommand{\dn}{\delta n} 
+\newcommand{\dsigma}{\delta\sigma} 
+\newcommand{\dpp}{\delta p} 
+\newcommand{\deps}{\delta\epsilon} 
+\newcommand{\dq}{\delta q} 
+
+
+%sthocastic variables
+\newcommand{\sth}[1] {\breve{#1}}
+\newcommand{\su}{\sth{u}}
+\newcommand{\seps}{\sth{\eps}}
+\newcommand{\sS}{\sth{S}}
+\newcommand{\sT}{\sth{T}}
+\newcommand{\sPi}{\sth{\Pi}}
+\newcommand{\spsi}{{\sth\psi}}
+\newcommand{\ssigma}{{\sth\sigma}}
+\newcommand{\spp}{\sth{p}}
+\newcommand{\sn}{\sth{n}}
+\newcommand{\sm}{\sth{m}}
+\newcommand{\sw}{\sth{w}}
+\newcommand{\sI}{\sth{I}}
+\newcommand{\sJ}{\sth{J}}
+\newcommand{\sq}{\sth{q}}
+\newcommand{\sff}{\sth{f}}
+\newcommand{\sF}{\sth{F}}
+\newcommand{\sD}{\sth{D}}
+\newcommand{\sH}{\sth{H}}
+\newcommand{\sM}{\sth{M}}
+\newcommand{\sOmega}{\sth{\Omega}}
+
+
+
+%average variables (used to be denoted by bar)
+\newcommand{\beps}{\eps}
+\newcommand{\bu}{ u} 
+\newcommand{\bv}{ v} 
+\newcommand{\bp}{ p} 
+\newcommand{\bw}{ w} 
+\newcommand{\bD}{ \Delta} 
+\newcommand{\bmm}{m} 
+
+
+
+
+%derivatives etc.
+\newcommand\del{\partial} 
+\newcommand\bpp{{\partial_\perp}}
+\newcommand{\delp}{{\del_\perp}}
+\newcommand{\delpy}{{\del^{(y)}_\perp}}
+\newcommand{\yp}{{y_\perp}}
+\newcommand{\Dx}{\Delta x}
+
+\newcommand\Opp{\Omega^{\prime\prime}}
+
+
+%3-vectors, momenta etc.
+\newcommand{\ve}{\bm e}
+\newcommand{\vp}{\bm q}
+\newcommand{\vpq}{\bm q}
+\newcommand{\vx}{\bm x}
+\newcommand{\pp}{{q}} % was q_\perp
+\newcommand{\ph}{\hat q}
+\newcommand{\php}{{\hat q}} % was \hat q_\perp
+\newcommand{\hi}{\hat i}
+\newcommand{\hj}{\hat j}
+\newcommand\pq{{p}}
+\newcommand\p{{q}}
+
+
+\providecommand\T[1]{(#1)}
+
+
+%commutators, anti-commutators averages 
+\def\lmd#1#2{\Lambda_#1^{\,\,#2}}
+\newcommand{\av}[1]{\langle{#1}\rangle}
+\newcommand{\acomm}[1]{\left\{#1\right\}} 
+\newcommand{\comm}[1]{\left[#1\right]} 
+\providecommand\mcomm[1]{\left[#1\right\}}
+
+%Matrices in kinetic equations
+\newcommand{\LL}{{\mathbb L}}
+\newcommand{\K}{{\mathbb K}}
+\newcommand{\Q}{{\mathbb Q}}
+\newcommand{\D}{{\mathbb D}}
+\newcommand{\E}{{\mathbb E}}
+\newcommand{\Y}{{\mathbb Y}}
+\newcommand{\Lcon}{\bar\LL}
+\newcommand{\Om}{\mathbb{\Omega}}
+\newcommand{\Th}{\mathbb{\Theta}}
+\newcommand\Hmatrix{\mathbb{H}}
+\newcommand{\F}{{\mathbb F}}
+\newcommand{\M}{{\mathbb M}}
+\newcommand{\om}{\mathbb{\omega}}
+
+%transverse modes
+\newcommand\btr{\widehat K}
+\newcommand\otr{\widehat \Omega}
+\newcommand\wtr{\widehat \W}
+\newcommand\dtr{\widehat \Delta}
+\newcommand\Dtr{\widehat \D}
+
+
+\newcommand{\cA}{{\bf  A}}
+\newcommand{\cB}{{\bf  B}}
+\newcommand\ab{{b}}
+
+%correlators
+\newcommand\N{{G}}
+\newcommand\GG{{\bar G}}
+\newcommand\W{{W}}
+\newcommand\WN{{N}}
+\newcommand\DW{{\W^{\rm (neq)}}}
+\providecommand\G{{G}}
+
+
+
+%conflutent derivative, connections, curvature 
+\newcommand\wt{\widetilde}
+\newcommand\cfd{\bar{\nabla}}
+\newcommand\ucon{\bar\omega}
+\newcommand\econ{\mathring\omega}
+\newcommand\tcon{\widehat\omega}
+\newcommand\txcon{\widehat{\mathring\omega}}
+
+\newcommand\tcurv{\widehat R}
+\newcommand\ucurv{\bar R}
+
+
+%thermodynamic coefficients
+\newcommand{\epsmbytn}{\eps_\sigma}
+\newcommand{\alphambytn}{\alpha_\sigma}
+\newcommand{\epsmmbytnsq}{\eps_{\sigma\sigma}}
+
+
+%other parameters
+\newcommand{\gaugepar}{\vartheta}
+
+% comments:
+\newcommand\blue{\color{blue}}
+
+
+
+\providecommand\phineq{\varphi^{\rm (neq)}}
+\providecommand\bmphieq{\bm\varphi^{(0)}}
+\providecommand\phieq{\varphi^{(0)}}
+
+
+
+
+
+
+
+% Spinodal paper
+\newcommand\LY{{\rm LY}}
+\newcommand\WF{{\rm WF}}
+\renewcommand\O{{\rm O}}
+\newcommand\ord{\mathcal{O}}
+\renewcommand\c{{\rm c}}
+\renewcommand\sp{{\rm sp}}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\giv{u_0}
+\newcommand\givt{\widetilde{u}_0}
+\newcommand\gf{{u}}
+\newcommand\givf{\giv^\WF}
+\newcommand\giii{g_3}
+\newcommand\giiit{\widetilde{g}_3}
+
+
+

@@ -1,0 +1,13 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\contentsline {chapter}{Contents}{i}{section*.1}
+\contentsline {chapter}{List of Figures}{ii}{section*.2}
+\contentsline {chapter}{List of Tables}{iii}{section*.3}
+\contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}The Standard Model}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}The Quantum Chromodynamics}{3}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Hadron Collisions and Factorization}{4}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}QCD Branching , Hadronization and Jets}{5}{subsection.1.1.3}
+\contentsline {section}{\numberline {1.2}QCD Phase Transition and Quark-Gluon-Plasma}{7}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Relativistic heavy-ion collisions}{8}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Jet Quenching and Hard Probes}{11}{subsection.1.2.2}
+\contentsline {chapter}{Bibliography}{16}{section*.13}

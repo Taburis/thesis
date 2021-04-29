@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+import subprocess
+
+def test_avaliablity(exe):
+    key = True
+    try : 
+    	check = subprocess.check_output(['which', exe])
+    except : key = False
+    return key
+
+def create_dir(spath):
+    if os.path.isdir(spath) :
+        return
+    else:
+        os.mkdir(spath)
+
+def runLatex(args):
+    if not args.tex:
+        print("Error: No .tex input found")
+        return
+    
+    if not os.path.exists(args.tex):
+        print("Error: Didn't found the input:", args.tex)
+        return
+    
+    texExe = 'pdflatex'
+    bibTex = 'bibtex'
+    if not test_avaliablity(texExe):
+        print('Error: pdflatex is not avaliable')
+    if not test_avaliablity(bibTex):
+        print('Error: bibtex is not avaliable')
+    
+    temp_dir = "temp"
+    origin_dir = os.getcwd()
+    if args.temp_dir: temp_dir = args.temp_dir
+    if temp_dir[-1] != '/': temp_dir +='/'
+    #temp_dir = origin_dir + '/'+temp_dir
+    create_dir(temp_dir)
+    
+    nonstop = "-interaction=nonstopmode"
+    bib =  args.tex.split('.')[0]
+  
+    print('temp dir: ',temp_dir)
+    os.system(texExe+' -interaction=batchmode -no-shell-escape -output-directory="'+temp_dir+'" "'+origin_dir+'/'+args.tex+'" 1> /dev/null 2> /dev/null')
+    os.system('cp '+bib+'.bib '+temp_dir)
+    os.chdir(temp_dir)
+    os.system(bibTex+' '+bib)
+    os.chdir(origin_dir)
+    os.system(texExe+' -interaction=batchmode -no-shell-escape -output-directory="'+temp_dir+'" "'+origin_dir+'/'+args.tex+'" 1> /dev/null 2> /dev/null')
+    os.system(texExe+' -interaction=nonstopmode -output-directory="'+temp_dir+'" "'+origin_dir+'/'+args.tex+'"')
+    #os.system(texExe+' -interaction=batchmode -no-shell-escape -output-directory="'+temp_dir+'" "'+origin_dir+'/'+args.tex+'"')
+
+if __name__=='__main__':
+    parser = argparse.ArgumentParser()
+    
+    parser.add_argument('-d', dest="temp_dir", help='path to template directory')
+    parser.add_argument('-t', dest="tex", help='tex file for compiling')
+    
+    args = parser.parse_args()
+    
+    runLatex(args)
+
